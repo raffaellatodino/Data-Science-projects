@@ -8,6 +8,6 @@ Questa repository raccoglie i progetti svolti durante il Master in Data Science 
 [Cross-selling assicurativo](https://github.com/raffaellatodino/Cross-selling-assicurativo)  
 
 ## Modulo di Machine Learning modelli e algoritmi  
-[Previsione affidabilità creditizia](https://github.com/raffaellatodino/Previsione-affidabilit-creditizia)  
+[Previsione affidabilità creditizia](https://github.com/raffaellatodino/Previsione-affidabilita-creditizia)  
 
 
