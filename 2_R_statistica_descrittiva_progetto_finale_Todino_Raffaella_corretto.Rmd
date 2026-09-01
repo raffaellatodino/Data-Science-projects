@@ -1,0 +1,825 @@
+---
+title: "Analisi del mercato immobiliare in Texas"
+author: "Raffaella Todino"
+date: "2025-09-05"
+output: html_document
+---
+
+# Import del dataset
+
+```{r}
+texas <- read.csv("realestate_texas.csv")
+head(texas, 5)
+```
+
+
+# 1. Analisi delle variabili
+
+Nel dataset è presente una variabile stringa (city) e 7 varaibili numeriche, di cui 4 caratterizzate da numeri interi (year, month, sales e listings).
+
+In particolare, le tipologie di variabili sono le seguenti:
+
+city: qualitativa nominale  
+year: quantitativa continua  
+month: qualitativa ordinale codificata in numeri  
+sales: quantitativa discreta  
+volume: quantitativa continua  
+median_price: quantitativa continua  
+listings: quantitativa discreta  
+months_inventory: quantitativa discreta  
+
+
+La variabile year e la variabile month sottintendono una dimensione temporale e possono essere utilizzate per visualizzare grafici di serie storiche: con la variabile year si può studiare l'andamento delle vendite immobiliari negli anni e, con la variabile month, all'interno dello stesso anno, si può osservare l'andamento stagionale.
+
+```{r}
+str(texas)
+```
+# 2. Indici di posizione, variabilità e forma
+
+## Calcolo degli indici di posizione, variabilità e forma per le variabili quantitative non temporali
+
+```{r}
+library(knitr)
+library(moments)
+
+selected_cols <- texas[, c("sales","volume","median_price", "listings", "months_inventory")]
+
+stats <- data.frame(
+  Mean           = apply(selected_cols, 2, mean),
+  Median         = apply(selected_cols, 2, median),
+  Min          = apply(selected_cols, 2, min),
+  Max         = apply(selected_cols, 2, max),
+  IQR             = apply(selected_cols, 2, IQR),
+  Variance        = apply(selected_cols, 2, var),
+  Std_dev   = apply(selected_cols, 2, sd),
+  Skewness  = apply(selected_cols, 2, skewness),
+  Kurtosis  = apply(selected_cols, 2, kurtosis)
+)
+stats$Kurtosis = stats$Kurtosis - 3
+
+stats <- t(stats)
+colnames(stats) <- colnames(selected_cols)
+
+knitr::kable(stats, caption = "Tabella riassuntiva delle principali statistiche")
+```
+
+
+
+
+
+### Variabile sales
+
+```{r}
+#min, max, median, mean, 1st quartile, 3rd quartile
+
+summary(texas$sales)
+
+#range
+print(paste("range: ", max(texas$sales) - min(texas$sales)))
+
+#IQR
+print(paste("IQR: ", IQR(texas$sales)))
+
+#variance
+print(paste("variance: ", var(texas$sales)))
+
+#standard deviation
+print(paste("standard deviation: ", sd(texas$sales)))
+
+#form indexes
+library(moments)
+
+print(paste("skwness: ", skewness(texas$sales)))
+print(paste("kurtosi: ", kurtosis(texas$sales) - 3))
+
+```
+
+### Variabile volume
+
+```{r}
+#min, max, median, mean, 1st quartile, 3rd quartile
+
+summary(texas$volume)
+
+#range
+print(paste("range: ", max(texas$volume) - min(texas$volume)))
+
+#IQR
+print(paste("IQR: ", IQR(texas$volume)))
+
+#variance
+print(paste("variance: ", var(texas$volume)))
+
+#standard deviation
+print(paste("standard deviation: ", sd(texas$volume)))
+
+#form indexes
+
+print(paste("skwness: ", skewness(texas$volume)))
+print(paste("kurtosi: ", kurtosis(texas$volume) - 3))
+```
+
+### Variabile median_price
+
+```{r}
+#min, max, median, mean, 1st quartile, 3rd quartile
+
+summary(texas$median_price)
+
+#range
+print(paste("range: ", max(texas$median_price) - min(texas$median_price)))
+
+#IQR
+print(paste("IQR: ", IQR(texas$median_price)))
+
+#variance
+print(paste("variance: ", var(texas$median_price)))
+
+#standard deviation
+print(paste("standard deviation: ", sd(texas$median_price)))
+
+#form indexes
+
+print(paste("skwness: ", skewness(texas$median_price)))
+print(paste("kurtosi: ", kurtosis(texas$median_price) - 3))
+```
+
+### Variabile listings
+
+```{r}
+#min, max, median, mean, 1st quartile, 3rd quartile
+
+summary(texas$listings)
+
+#range
+print(paste("range: ", max(texas$listings) - min(texas$listings)))
+
+#IQR
+print(paste("IQR: ", IQR(texas$listings)))
+
+#variance
+print(paste("variance: ", var(texas$listings)))
+
+#standard deviation
+print(paste("standard deviation: ", sd(texas$listings)))
+
+#form indexes
+
+print(paste("skwness: ", skewness(texas$listings)))
+print(paste("kurtosi: ", kurtosis(texas$listings) - 3))
+```
+### Variabile months_inventory
+
+```{r}
+#min, max, median, mean, 1st quartile, 3rd quartile
+
+summary(texas$months_inventory)
+
+#range
+print(paste("range: ", max(texas$months_inventory) - min(texas$months_inventory)))
+
+#IQR
+print(paste("IQR: ", IQR(texas$months_inventory)))
+
+#variance
+print(paste("variance: ", var(texas$months_inventory)))
+
+#standard deviation
+print(paste("standard deviation: ", sd(texas$months_inventory)))
+
+#form indexes
+
+print(paste("skwness: ", skewness(texas$months_inventory)))
+print(paste("kurtosi: ", kurtosis(texas$months_inventory) - 3))
+```
+
+Tutte le variabili quantitative mostrano una media e una mediana molto simili tra loro, pertanto non ci si aspetta di trovare valori estremamente anomali all'interno dei dati. Tuttavia le distribuzioni non sono simmetriche, infatti si può osservare, ad esempio nella variabile sales, che il valore medio è più vicino al minimo che al massimo, ad indicare che i dati sono maggiormente distribuiti sui valori bassi; questo è confermato dal valore di skewness positivo. Dal valore di skewness si può osservare che, oltre a sales, anche volume e listings hanno un'asimmetria positiva, mentre median_price ha un'asimmetria negativa e months_inventory è praticamente simmetrica. Per quanto riguarda i valori di kurtosi, invece, tutte le variabili risultano leggermente platicurtiche, ad eccezione di volume che è leggermente leptocurtica.
+
+
+## Costruzione delle distribuzioni di frequenza delle variabili qualitative e della variabile anno
+
+```{r}
+#select the number of rows as the number of samples N
+N = dim(texas)[1] 
+```
+
+### Variabile city
+
+```{r}
+frq_ass <- table(texas$city)
+frq_rel <- frq_ass/N
+
+distr_frq_city <- cbind(frq_ass,frq_rel)
+distr_frq_city
+```
+### Variabile year
+
+```{r}
+frq_ass <- table(texas$year)
+frq_rel <- frq_ass/N
+frq_cum <- cumsum(frq_ass)
+frq_rel_cum <- frq_cum/N
+
+distr_frq_year <- cbind(frq_ass,frq_rel, frq_cum, frq_rel_cum)
+distr_frq_year
+```
+### Variabile month
+
+```{r}
+frq_ass <- table(texas$month)
+frq_rel <- frq_ass/N
+frq_cum <- cumsum(frq_ass)
+frq_rel_cum <- frq_cum/N
+
+distr_frq_month <- cbind(frq_ass,frq_rel, frq_cum, frq_rel_cum)
+distr_frq_month
+```
+
+Dalle distibuzioni di frequenza si osserva che per tutte le variabili qualitative i dati sono distribuiti equamente tra tutte le categorie, quindi sia nei vari anni, sia nei mesi e sia nelle quattro città. Ci si aspetta quindi massima eterogeneità e un indice di Gini pari a 1.
+
+
+# 3. Identificazione delle variabili con maggiore variabilità e asimmetria
+
+Per confrontare la variabilità delle diverse variabili si può calcolare il coefficiente di variazione per ognuna delle variabili quantitative, il quale misura la variabilità relativa rispetto alla media.
+
+```{r}
+cv_sales <- sd(texas$sales)/mean(texas$sales) *100
+cv_volume <- sd(texas$volume)/mean(texas$volume) *100
+cv_median_price <- sd(texas$median_price)/mean(texas$median_price) *100
+cv_listings <- sd(texas$listings)/mean(texas$listings) *100
+cv_months_inventory <- sd(texas$months_inventory)/mean(texas$months_inventory) *100
+
+cbind(cv_sales,cv_volume,cv_median_price,cv_listings,cv_months_inventory)
+```
+La variabile con il coefficiente di variazione maggiore risulta essere volume, pertanto è quella a più alta variabilità. Essa infatti ha una variabilità attorno alla media del 54% circa.
+
+Inoltre, osservando i valori di skewness calcolati per ogni variabile, volume risulta anche la variabile più asimmetrica, essendo quella con il valore assoluto di skewness più alto. In particolare, essendo il valore maggiore di zero, avrà un'asimmetria positiva, ovvero una distribuzione scodata verso valori più alti della media. Questo implica che potrebbero essere presenti alcuni valori molto alti rispetto al resto della distribuzione dei dati rispetto a questa variabile. 
+
+```{r}
+cbind(skewness(texas$sales), skewness(texas$volume), skewness(texas$median_price), skewness(texas$listings), skewness(texas$months_inventory))
+```
+L'asimettria della distribuzione si può osservare anche nel seguente grafico.
+
+```{r}
+plot(density(texas$volume), main="Density curve - Volume")
+```
+
+# 4. Creazione di classi per una variabile quantitativa
+
+Si considera la variabile sales e, considerando i suoi valori di minimo e massimo, si decide di dividerla in 8 classi da 50 a 450 che spaziano di 50.
+
+```{r}
+min(texas$sales)
+max(texas$sales)
+```
+```{r}
+N = dim(texas)[1] 
+
+texas$sales_cl <- cut(texas$sales, breaks=c(50,100,150,200,250,300,350,400,450))
+
+frq_ass <-table(texas$sales_cl) 
+frq_rel <-frq_ass/N 
+frq_cum <-cumsum(frq_ass) 
+frq_rel_cum <-frq_cum/N 
+
+cbind(frq_ass,frq_rel,frq_cum,frq_rel_cum)
+
+barplot(frq_rel,
+        main = "Distribution of sales classes",
+        xlab = "Sales classes",
+        ylab = "Relative frequencies",
+        col="lightgreen",
+        )
+```  
+
+Si calcola l'indice di gini per le classi costruite
+
+```{r}
+#define the function for the gini index calculus
+gini_index <- function(x){
+  ni = table(x) #freq assolute
+  fi = ni/length(x) #freq relative
+  fi2 = fi^2 #freq rel al quad
+  J = length(table(x)) #numero di classi
+  
+  gini = 1-sum(fi2)
+  gini_norm = gini/((J-1)/J)
+  
+  return(gini_norm)
+}
+
+frq_ass
+gini_index(texas$sales_cl)
+
+```
+Si può osservare che la classe più numerosa è quella compresa tra 100 e 150 vendite, con il 30% delle osservazioni. Inoltre più del 50% delle osservazioni (il 62% per l'esattezza) si trova ad un valore inferiore a 200, infatti la mediana della variabile sales, corrispondente al cinquantesimo percentile, è pari a 175.5, incluso quindi nella classe 150-200 (classe mediana). Le classi più alte sono invece poco popolate, ad indicare che raramente è stato registrato un numero di vendite così elevato.
+Nonostante la bassa popolazione delle ultime due classi, l'indice di gini normalizzato, che misura l'eterogeneità delle classi, rimane elevato, pari a 0.92, ad indicare che i dati sono distribuiti in maniera abbastanza equa tra le varie categorie e, nonostante ci sia una classe più popolata, essa non è preponderante al punto da rendere la variabile omogenea.
+
+
+# 5. Calcolo della probabilità
+
+Per calcolare la probabilità che, presa una riga a caso, essa si riferisca alla città Beaumont, si devono contare quante osservazioni della città Beaumont sono presenti rispetto al totale (numero di casi favorevoli rispetto al numero di casi possibili)
+
+```{r}
+table(texas$city)
+```
+```{r}
+Prob_beaumont = 60/240
+Prob_beaumont
+```
+Ci sono 60 osservazioni con Beaumont rispetto a 240 totali, ovvero il 25% di probabilità che esca la città Beaumont.
+
+Si procede allo stesso modo per calcolare la probabilità che esca il mese di luglio
+
+```{r}
+table(texas$month)
+```
+```{r}
+Prob_july = 20/240
+Prob_july
+```
+C'è l'8.33% di probabilità che, prendendo una riga a caso, essa riporti il mese di luglio.
+
+
+Per calcolare la probabilità che esca il mese dicembre 2012 bisogna calcolare la probabilità che si verifichino contemporaneamente l'evento del mese dicembre e dell'anno 2012 e poi moltiplicare le due probabilità.
+
+```{r}
+table(texas$year)
+table(texas$month)
+
+prob_2012 = 48/240
+prob_dic = 20/240
+
+print(prob_2012)
+print(prob_dic)
+
+prob_dic_2012 = prob_2012*prob_dic
+prob_dic_2012
+```
+La probabilità che esca il mese dicembre 2012 risulta essere dell'1.667%.
+
+Si può calcolare la stessa probabilità andando a contare quante osservazioni di dicembre ci sono nell'anno 2012 e rapportarle al totale delle osservazioni
+
+```{r}
+table(texas$month[texas$year == 2012])
+```
+```{r}
+prob_dic_2012_bis = 4/240
+prob_dic_2012_bis
+
+```
+Questo calcolo conferma che la probabilià di osservare dicembre 2012 è dell'1.667%.
+
+
+# 6. Creazione di nuove variabili
+
+Per calcolare il prezzo medio degli immobili si divide la variabile volume, che rappresenta il valore totale delle vendite (ovvero la somma totale del ricavato delle vendite effettuate) per il numero di vendite. Si converte poi il valore in dollari moltiplicando per 1000000.
+
+```{r}
+texas$mean_price <- texas$volume/texas$sales *1000000
+```
+
+
+Per valutare l'efficacia degli annunci di vendita, si crea una variabile data dal rapporto tra numero di vendite e numero di annunci. In questo modo si può osservare il numero di vendite effettuate rispetto al numero di annunci pubblicati: più il rapporto è alto più la presenza di annunci è efficace nell'effettuare le vendite, più è basso più indica che non c'è stata particolare relazione tra vendite e annunci.
+
+```{r}
+texas$listings_eff <- texas$sales/texas$listings
+```
+
+```{r}
+summary(texas$listings_eff)
+
+```
+Si osserva che in media il numero di vendite è circa il 10% degli annunci pubblicati
+
+
+```{r}
+library(dplyr)
+
+#calculate monthly mean
+monthly_mean <- 
+  texas %>%
+  group_by(year, month) %>%
+  summarise(mean_efficacy = mean(listings_eff), .groups="drop")
+
+#calculate annual mean
+annual_mean <- monthly_mean %>%
+  group_by(year) %>%
+  summarise(annual_mean_efficacy = mean(mean_efficacy))
+```
+
+Il seguente grafico a barre mostra l'andamento medio dell'efficacia degli annunci negli anni, la quale è andata ad aumentare.
+
+```{r}
+library(ggplot2)
+
+ggplot(annual_mean, aes(x=as.factor(year), y=annual_mean_efficacy)) +
+  geom_col(fill="skyblue") +
+  labs(title = "Mean efficacy per year (sales)",
+       x = "Year",
+       y = "Annual mean efficacy (number of sales/list)")+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+Nel grafico sottostante sono mostrati gli andamenti mensili per ogni anno. Si può osservare come da aprile ad agosto l'efficacia è maggiore. Inoltre anche da questo grafico si evince l'aumento dell'efficacia dal 2010 nal 2014.
+
+```{r}
+ggplot(monthly_mean, aes(x = as.factor(month), y = mean_efficacy, group = year, color = as.factor(year))) +
+  geom_line(linewidth=1) +
+  geom_point() +
+  labs(title = "Monthly trend of efficacy by year (sales)",
+       x = "Month", y = "Mean efficacy (number of sales/list)", color= "Year")+
+  theme(plot.title = element_text(hjust = 0.5))
+  
+```
+
+Si può inoltre creare una colonna che misuri anche l'efficacia degli annunci in termini di fatturato, dividendo quindi il valore totale delle vendite (volume) per il numero di annunci e osservando il ricavato medio per annuncio. Più il rapporto è elevato più l'efficacia sarà alta.
+
+```{r}
+texas$listings_eff_vol <- texas$volume/texas$listings
+```
+
+```{r}
+#calculate monthly mean
+monthly_mean_vol <- 
+  texas %>%
+  group_by(year, month) %>%
+  summarise(mean_efficacy_vol = mean(listings_eff_vol), .groups="drop")
+
+#calculate annual mean
+annual_mean_vol <- monthly_mean_vol %>%
+  group_by(year) %>%
+  summarise(annual_mean_efficacy_vol = mean(mean_efficacy_vol))
+```
+
+```{r}
+ggplot(annual_mean_vol, aes(x=as.factor(year), y=annual_mean_efficacy_vol)) +
+  geom_col(fill="skyblue") +
+  labs(title = "Mean efficacy per year (volume)",
+       x = "Anno",
+       y = "Annual mean efficacy (millions of dollars/list)")+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+```{r}
+ggplot(monthly_mean_vol, aes(x = as.factor(month), y = mean_efficacy_vol, group = year, color = as.factor(year))) +
+  geom_line(linewidth=1) +
+  geom_point() +
+  labs(title = "Monthly trend of efficacy by year (volume)",
+       x = "Month", y = "Mean efficacy (millions of dollars/list)", color = "Year")+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+L'andamento risulta in linea con quello dell'efficacia per numero di annunci.
+
+
+# 7. Analisi condizionata
+
+
+## Numero di vendite per città
+
+
+Si calcola la media e la deviazione standard del numero di vendite per città e si mostrano in un barplot.
+
+```{r}
+city_summary <- 
+  texas %>%
+  group_by(city) %>%
+  summarise(mean = mean(sales),
+            dv_std = sd(sales))
+city_summary
+```
+
+```{r}
+ggplot(city_summary)+theme_bw()+
+  geom_col(aes(x=city, y=mean),fill="darkgreen")+
+  geom_errorbar(aes(x=city,
+                    ymin=mean-dv_std,
+                    ymax=mean+dv_std),col=2)+
+  labs(title="Number of sales by city", x="City", y="Mean of sales")+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+La città con il maggior numero di vendite medio risulta essere Tyler.
+
+## Numero di vendite per anno
+
+Si calcolano media e deviazione standard del numero di vendite per ogni anno
+
+```{r}
+year_summary <- 
+  texas %>%
+  group_by(year) %>%
+  summarise(mean = mean(sales),
+            dv_std = sd(sales))
+year_summary
+```
+
+```{r}
+ggplot(year_summary)+theme_bw()+
+  geom_col(aes(x=year, y=mean),fill="darkgreen")+
+  geom_errorbar(aes(x=year,
+                    ymin=mean-dv_std,
+                    ymax=mean+dv_std),col=2)+
+  labs(title="Number of sales by year", x="Year", y="Mean of sales")+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+Si conferma l'aumento delle vendite negli anni.
+
+## Numero di vendite per mese (complessivo di tutti gli anni)
+
+Si calcola media e deviazione standard del numero di vendite in ogni mese, considerando tutti gli anni.
+
+```{r}
+month_summary <- 
+  texas %>%
+  group_by(month) %>%
+  summarise(mean = mean(sales),
+            dv_std = sd(sales))
+month_summary
+```
+```{r}
+ggplot(month_summary)+theme_bw()+
+  geom_col(aes(x=as.factor(month), y=mean),fill="darkgreen")+
+  geom_errorbar(aes(x=month,
+                    ymin=mean-dv_std,
+                    ymax=mean+dv_std),col=2)+
+  labs(title="Number of sales by month (all years)", x="Month", y="Mean of sales")+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+Si conferma una maggior vendita nei mesi centrali dell'anno.
+
+## Numero di vendite per mese per anno
+
+Si raggruppano i dati per anno e mese e si calcolano media e deviazione standard del numero di vendite per ogni mese di ogni anno.
+
+```{r}
+month_per_year_summary <- 
+  texas %>%
+  group_by(year, month) %>%
+  summarise(mean = mean(sales),
+            dv_std = sd(sales))
+month_per_year_summary
+```
+
+Si mostra in un lineplot l'andamento del numero di vendite mensile in ogni anno.
+
+```{r}
+ggplot(month_per_year_summary, aes(x = as.factor(month), y = mean, group = year, color = as.factor(year))) +
+  geom_line(linewidth=1) +
+  geom_point() +
+  labs(title = "Numero di vendite mensili per anno",
+       x = "Mese", y = "Numero di vendite medio", color="Year")+
+  labs(title="Number of sales by month (per years)", x="Month", y="Mean of sales")+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+# 8. Creazione di visualizzazioni con ggplot2
+
+## Analisi di prezzi e annunci per città in relazione a numero di vendite e fatturato
+
+Si analizza la distribuzione dei prezzi mediani di vendita per città
+
+```{r}
+ggplot(data= texas)+
+  geom_boxplot(aes(
+    x = city,
+    y = median_price),
+    col = "black",
+    fill="lightblue")+
+  labs(title = "Distribution of median sale prices in cities",
+       x = "City",
+       y="Median price (dollars)")+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+Si può osservare come la città con i prezzi più alti sia Bryan-Colege Station, mentre quella con i prezzi più bassi è Wichita Falls.
+
+
+Ora si osserva la stessa distribuzione ma aggiungendo l'informazione dell'anno
+
+```{r}
+
+ggplot(data= texas)+
+  geom_boxplot(aes(
+    x = city,
+    y = median_price, 
+    fill=as.factor(year)),
+    col = "black")+
+  labs(title = "Distribution of median sale prices in cities by year",
+       x = "City",
+       y="Median price (dollars)",
+       fill="Year")+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+Si osserva che negli anni si è registrato un aumento dei prezzi di vendita maggiormente evidente nella città di Bryan-College Station e di Tyler. Anche nella città di Beaumont, ad eccezione del 2010, gli altri anni mostrano questo andamento crescente.
+
+Con i boxplot seguenti si osserva che anche il valore totale delle vendite è aumentato negli anni per tutte le città, ad eccezione di Wichita Falls in cui è rimasto praticamente invariato.
+
+```{r}
+ 
+  ggplot(data= texas)+
+  geom_boxplot(aes(
+    x = city,
+    y = volume, 
+    fill=as.factor(year)),
+    col = "black")+
+  labs(title = "Distribution of total sales value in the cities by year",
+       x = "City",
+       y="Volume (million of dollars)",
+       fill="Year")+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+Il numero delle vendite segue lo stesso andamento osservato per prezzi e valore: crescente per tutte le città ad eccezione di Wichita Falls.
+Si può osservare come, mentre la città di Bryan-College Station è quella con i prezzi mediani più alti, quella che ha avuto un maggior numero di vendite e che ha fatturato maggiormente è Tyler.
+
+```{r}
+ggplot(data= texas)+
+  geom_boxplot(aes(
+    x = city,
+    y = sales, 
+    fill=as.factor(year)),
+    col = "black")+
+  labs(title = "Distribution of the number of sales in the cities by year",
+       x = "City",
+       y="Number of sales",
+       fill="Year")+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+Questo si può spiegare andando ad osservare il numero degli annunci attivi per ogni città.
+
+```{r}
+ggplot(data= texas)+
+  geom_boxplot(aes(
+    x = city,
+    y = listings, 
+    fill=as.factor(year)),
+    col = "black")+
+  labs(title = "Distribution of the number of listings in the cities by year",
+       x = "City",
+       y="Number of listings",
+       fill="Year")+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+Si può osservare come la città di Tyler abbia pubblicato un numero di annunci nettamente superiore alle altre città e come, Wichita Falls, sia invece la città con meno annunci.
+In generale in tutte le città il numero di annunci negli anni è andato però a diminuire. Probabilmente però sono stati sviluppati in numero inferiore ma in maniera più efficace, infatti, se osserviamo l'andamento degli anni dell'efficacia degli annunci, sia rispetto al numero di vendite sia rispetto al fatturato, osserviamo un andamento crescente.
+
+
+```{r}
+ggplot(data= texas)+
+  geom_boxplot(aes(
+    x = city,
+    y = listings_eff, 
+    fill=as.factor(year)),
+    col = "black")+
+  labs(title = "Distribution of the efficacy (sales) of listings in cities per year",
+       x = "City",
+       y="Efficacy (number of sales)",
+       fill = "Year")+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+```{r}
+ggplot(data= texas)+
+  geom_boxplot(aes(
+    x = city,
+    y = listings_eff_vol, 
+    fill=as.factor(year)),
+    col = "black")+
+  labs(title = "Distribution of the efficacy (value) of listings in cities per year",
+       x = "City",
+       y="Efficacy (million of dollars)",
+       fill="Year")+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+Si può osservare come in generale la città di Bryan-College Station abbia degli annunci più efficaci rispetto alla città di Tyler, tuttavia quest'ultima, compensando con un elevato numero di annunci, tende a fatturare maggiormente.
+
+
+## Totale vendite per mese e città
+
+
+```{r}
+library(viridis)
+
+```
+
+Grafico a barre sovrapposte
+
+```{r}
+
+ggplot(data = texas)+
+  geom_col(aes(x=city, 
+               y=sales,
+              fill = as.factor(month)), position = "stack")+
+  labs(title = "Total sales by month and cities",
+        x="City",
+        y="Number of sales",
+       fill="Month")+
+  scale_fill_viridis_d(option="H")+
+  theme(plot.title = element_text(hjust = 0.5))
+  
+```
+
+Grafico a barre sovrapposte normalizzato
+
+```{r}
+ggplot(data = texas)+
+  geom_col(aes(x=city, 
+               y=sales,
+              fill = as.factor(month)), position = "fill")+
+  labs(title = "Total sales by month and cities",
+        x="City",
+        y="Number of sales",
+       fill="Month")+
+  scale_fill_viridis_d(option="H")+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+Dai grafici a barre Si osserva che il numero di vendite della città di Tyler, come già emerso dai boxplot, è quello più elevato. Dal grafico normalizzato si osserva che negli stessi mesi le città hanno all'incirca gli stessi quantitativi di vendite rispetto al totale. In tutte le città inoltre c'è un aumento delle vendite nei mesi centrali dell'anno ovvero da aprile ad agosto.
+
+
+Ora si mostrano gli stessi grafici divisi per anno
+
+```{r, fig.width=10, fig.height=7}
+
+ggplot(data = texas)+
+  geom_col(aes(x=city, 
+               y=sales,
+              fill = as.factor(month)), position = "stack")+
+  facet_wrap(~year)+
+  labs(title = "Total sales by month and cities per year",
+        x="City",
+        y="Number of sales",
+       fill = "Month")+
+  scale_fill_viridis_d(option="H")+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        plot.title = element_text(hjust = 0.5))
+```
+
+Si fa lo stesso con i grafici a barre normalizzati
+
+```{r, fig.width=10, fig.height=7}
+ggplot(data = texas)+
+  geom_col(aes(x=city, 
+               y=sales,
+              fill = as.factor(month)), position = "fill")+
+  facet_wrap(~year)+
+  labs(title = "Total sales by month and cities per year",
+        x="City",
+        y="Number of sales",
+       fill="Month")+
+  scale_fill_viridis_d(option="H")+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        plot.title = element_text(hjust = 0.5))
+
+```
+
+## Andamento delle vendite negli anni
+
+Si costruiscono dei lineplot per mostrare l'andamento delle vendite mensili (plot 1) e del numero degli annunci (plot 2) per ogni mese nei diversi anni e nelle diverse città.
+
+```{r, fig.width=9, fig.height=6}
+
+ggplot(data = texas) +
+  geom_line(aes(x = month, y = sales, color = as.factor(year))) +
+  geom_point(aes(x = month, y = sales, color = as.factor(year))) +
+  scale_x_continuous(breaks = 1:12, labels = 1:12) +
+  facet_wrap(~city) +
+  labs(
+    x = "Month",
+    y = "Number of sales",
+    color = "Year",
+    title = "Plot 1: Trend of monthly sales by city and year"
+  )+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+Si può osservare, come osservato in precedenza, che negli anni il numero di vendite è andato ad aumentare e che, in particolare per la città di Bryan-College Station e di Tyler, le vendite all'interno dell'anno sono più numerose nei mesi centrali.
+
+```{r, fig.width=9, fig.height=6}
+
+ggplot(data = texas) +
+  geom_line(aes(x = month, y = listings, color = as.factor(year))) +
+  geom_point(aes(x = month, y = listings, color = as.factor(year))) +
+  scale_x_continuous(breaks = 1:12, labels = 1:12) +
+  facet_wrap(~city) +
+  labs(
+    x = "Month",
+    y = "Number of sales",
+    color = "Year",
+    title = "Plot 2: Trend of monthly number of listings by city and year"
+  )+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+# 9. Conclusioni
+
+Dall'analisi è emerso che le città con fatturato maggiore sono quelle in cui gli annunci attivi o sono più efficaci, quindi fatti probabilmente con maggior attenzione, come nel caso di Bryan-College Station, oppure sono più numerosi. Infatti, nel caso della città di Tyler, anche se per singolo annuncio le vendite risultano inferiori, il numero elevato di annunci presenti consente alla città di essere quella con il valore totale delle vendite più alto.
+Nel caso della città di Wichita Falls, la quale ha un'efficacia di annunci pari a quella delle altre città, bisognerebbe probabilmente incrementare il numero di annunci che invece è sempre rimasto esiguo.
+
+
