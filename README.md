@@ -20,7 +20,7 @@ Esplorazione del dataset, analisi descrittiva delle variabili, features encoding
 <img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/creditcard.jpg" alt="Insurance" width="220" align="left"> [Previsione affidabilità creditizia](https://github.com/raffaellatodino/Previsione-affidabilita-creditizia)  
 Sviluppo di un modello in grado di stimare l'affidabilità creditizia dei clienti.  
 Utilizzo di Python e dei pacchetti numpy, pandas, matplotilib, seaborn, sklearn. 
-Analisi del dataset, distribuzioni delle variavbili, preprocessing e gestione dei dati mancanti, features encoding, standardizzazione, train-test splitting, cross-validation, costruzione di modelli predittivi (regressione logistica, decision tree, random forest), valutazione e conronto dei modelli, curve ROC e matrici di confusione.
+Analisi del dataset, distribuzioni delle variabili, preprocessing e gestione dei dati mancanti, features encoding, standardizzazione, train-test splitting, cross-validation, costruzione di modelli predittivi (regressione logistica, decision tree, random forest), valutazione e confronto dei modelli, curve ROC e matrici di confusione.
 
 ## Certificati
 - [Programmazione con Python](https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Certificates/1_certificate-programmazione-con-python-630f72cc69cfc2ed210361eb.pdf)
