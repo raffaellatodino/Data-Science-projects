@@ -14,7 +14,7 @@ Utilizzo di python e del pacchetto json, operazioni su file, utilizzo di cicli, 
 <img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/insurance.jpg" alt="Insurance" width="220" align="left"> [Cross-selling assicurativo](https://github.com/raffaellatodino/Cross-selling-assicurativo)  
 Sviluppo di un modello per predire se un cliente con assicurazione sanitaria possa essere interessato ad un'assicurazione aggiuntiva sul veicolo.  
 Utilizzo di Python e dei pacchetti numpy, pandas, matplotlib, seaborn, sklearn, imblearn. 
-Esplorazione del dataset, analisi descrittiva delle variabili, features encoding, train-test splitting, modelli di regressione logistica, oversampling e undersampling, valutazione dei modelli con metriche appropriate, curve ROC, cross-validation.
+Esplorazione del dataset, analisi descrittiva delle variabili, features encoding, train-test splitting, regressione logistica, oversampling e undersampling, valutazione dei modelli con metriche appropriate, curve ROC, cross-validation.
 
 ## Modulo di Machine Learning modelli e algoritmi  
 <img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/creditcard.jpg" alt="Insurance" width="220" align="left"> [Previsione affidabilità creditizia](https://github.com/raffaellatodino/Previsione-affidabilita-creditizia)  
