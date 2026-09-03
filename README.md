@@ -1,8 +1,10 @@
 # Progetti del Master in Data Science
 Questa repository raccoglie i progetti che ho svolto durante il Master in Data Science di ProfessionAI.  
 Sono inoltre riportati i certificati ottenuti durante il percorso.  
+
 Lo sto ancora portando a termine, pertanto la repository verrà gradualmente aggiornata con i corsi completati.  
 Attualmente sto svolgendo il progetto del modulo di Machine Learning tecniche avanzate, successivamente sono previsti moduli di Deep Learning, NLP, Big Data, SQL, Data Visualization (Tableau).  
+
 I progetti sono elencati dal più recente al primo svolto.
 
 ## Modulo di Machine Learning modelli e algoritmi  
