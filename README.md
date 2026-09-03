@@ -8,19 +8,19 @@ I am currently working on the project for the Advanced Machine Learning Techniqu
 The projects are listed from the most recent to the first one completed.   
 
 ## Machine Learning Models and Algorithms Module  
-<img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/creditcard.jpg" alt="Insurance" width="220" align="left"> [Previsione affidabilità creditizia](https://github.com/raffaellatodino/Previsione-affidabilita-creditizia)  
+<img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/creditcard.jpg" alt="Insurance" width="220" align="left"> [Credit Risk Prediction](https://github.com/raffaellatodino/Previsione-affidabilita-creditizia)  
 Development of a model capable of estimating customers' creditworthiness.    
 Use of Python and the numpy, pandas, matplotlib, seaborn, and sklearn packages.    
 Dataset analysis, variable distributions, preprocessing and handling of missing data, feature encoding, standardization, train-test splitting, cross-validation, construction of predictive models (logistic regression, decision tree, random forest), model evaluation and comparison, ROC curves, confusion matrices.  
   
 ## Fundamentals of Machine Learning Module  
-<img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/insurance.jpg" alt="Insurance" width="220" align="left"> [Cross-selling assicurativo](https://github.com/raffaellatodino/Cross-selling-assicurativo)  
+<img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/insurance.jpg" alt="Insurance" width="220" align="left"> [Insurance Cross-Selling](https://github.com/raffaellatodino/Cross-selling-assicurativo)  
 Development of a model to predict whether a customer with health insurance might be interested in additional vehicle insurance.  
 Use of Python and the numpy, pandas, matplotlib, seaborn, sklearn, and imblearn packages.  
 Dataset exploration, descriptive analysis of variables, feature encoding, train-test splitting, logistic regression, oversampling and undersampling, model evaluation with appropriate metrics, ROC curves, cross-validation.
 
 ## Python Programming Module
-<img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/vegan.jpg" alt="Vegan" width="220" align="left"> [Software di prodotti vegani](https://github.com/raffaellatodino/Software-prodotti-vegani)  
+<img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/vegan.jpg" alt="Vegan" width="220" align="left"> [Vegan Products Software](https://github.com/raffaellatodino/Software-prodotti-vegani)  
 Development of a small text-based management software to handle the inventory of a vegan products store.  
 Use of Python and the json package, file operations, use of loops, conditional statements, and function definitions.  
 Exception handling.  
