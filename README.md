@@ -1,33 +1,35 @@
-# Progetti del Master in Data Science
-Questa repository raccoglie i progetti che ho svolto durante il Master in Data Science di ProfessionAI.  
-Sono inoltre riportati i certificati ottenuti durante il percorso.  
+# Data Science Master's Projects
+This repository collects the projects I completed during the Data Science Master's program at ProfessionAI.   
+It also includes the certificates obtained along the way.    
 
-Lo sto ancora portando a termine, pertanto la repository verrà gradualmente aggiornata con i corsi completati.  
-Attualmente sto svolgendo il progetto del modulo di Machine Learning tecniche avanzate, successivamente sono previsti moduli di Deep Learning, NLP, Big Data, SQL, Data Visualization (Tableau).  
+I am still completing the program, so the repository will be gradually updated with the completed courses.    
+I am currently working on the project for the Advanced Machine Learning Techniques module; upcoming modules include Deep Learning, NLP, Big Data, SQL, and Data Visualization (Tableau).  
 
-I progetti sono elencati dal più recente al primo svolto.
+The projects are listed from the most recent to the first one completed.   
 
-## Modulo di Machine Learning modelli e algoritmi  
+## Machine Learning Models and Algorithms Module  
 <img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/creditcard.jpg" alt="Insurance" width="220" align="left"> [Previsione affidabilità creditizia](https://github.com/raffaellatodino/Previsione-affidabilita-creditizia)  
-Sviluppo di un modello in grado di stimare l'affidabilità creditizia dei clienti.  
-Utilizzo di Python e dei pacchetti numpy, pandas, matplotilib, seaborn, sklearn.  
-Analisi del dataset, distribuzioni delle variabili, preprocessing e gestione dei dati mancanti, features encoding, standardizzazione, train-test splitting, cross-validation, costruzione di modelli predittivi (regressione logistica, decision tree, random forest), valutazione e confronto dei modelli, curve ROC e matrici di confusione.
+Development of a model capable of estimating customers' creditworthiness.    
+Use of Python and the numpy, pandas, matplotlib, seaborn, and sklearn packages.    
+Dataset analysis, variable distributions, preprocessing and handling of missing data, feature encoding, standardization, train-test splitting, cross-validation, construction of predictive models (logistic regression, decision tree, random forest), model evaluation and comparison, ROC curves, confusion matrices.  
   
-## Modulo di Fondamenti di Machine Learning  
+## Fundamentals of Machine Learning Module  
 <img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/insurance.jpg" alt="Insurance" width="220" align="left"> [Cross-selling assicurativo](https://github.com/raffaellatodino/Cross-selling-assicurativo)  
-Sviluppo di un modello per predire se un cliente con assicurazione sanitaria possa essere interessato ad un'assicurazione aggiuntiva sul veicolo.  
-Utilizzo di Python e dei pacchetti numpy, pandas, matplotlib, seaborn, sklearn, imblearn.  
-Esplorazione del dataset, analisi descrittiva delle variabili, features encoding, train-test splitting, regressione logistica, oversampling e undersampling, valutazione dei modelli con metriche appropriate, curve ROC, cross-validation.
+Development of a model to predict whether a customer with health insurance might be interested in additional vehicle insurance.  
+Use of Python and the numpy, pandas, matplotlib, seaborn, sklearn, and imblearn packages.  
+Dataset exploration, descriptive analysis of variables, feature encoding, train-test splitting, logistic regression, oversampling and undersampling, model evaluation with appropriate metrics, ROC curves, cross-validation.
 
-## Modulo di Programmazione in Python  
+## Python Programming Module
 <img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/vegan.jpg" alt="Vegan" width="220" align="left"> [Software di prodotti vegani](https://github.com/raffaellatodino/Software-prodotti-vegani)  
-Realizzazione di un piccolo software gestionale testuale per gestire il magazzino di un negozio di prodotti vegani.  
-Utilizzo di python e del pacchetto json, operazioni su file, utilizzo di cicli, istruzioni condizionali e definizione di funzioni. Gestione delle eccezioni.
+Development of a small text-based management software to handle the inventory of a vegan products store.  
+Use of Python and the json package, file operations, use of loops, conditional statements, and function definitions.  
+Exception handling.  
 
-## Certificati
-- [Programmazione con Python](https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Certificates/1_certificate-programmazione-con-python-630f72cc69cfc2ed210361eb.pdf)
-- [Statistica descrittiva (R)](https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Certificates/2_certificate-statistica-descrittiva-631320bbecb4c22bc40ab90f.pdf)
-- [Statistica inferenziale (R)](https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Certificates/3_certificate-statistica-inferenziale_raffaella-todino_691db5323ef1bd795eb69146.pdf)
-- [Fondamenti di Machine Learning (Python)](https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Certificates/4_certificate-fondamenti-machine-learning_raffaella-todino_694c182282ced1e385d91737.pdf)
-- [Machine Learning: modelli e algoritmi (Python)](https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Certificates/5_certificate-ML-modelli%20e%20algoritmi_raffaella-todino_69f07220bc4671b70f85a162.pdf)
+
+## Certificates
+- [Python Programming](https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Certificates/1_certificate-programmazione-con-python-630f72cc69cfc2ed210361eb.pdf)
+- [Descriptive Statistics (R)](https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Certificates/2_certificate-statistica-descrittiva-631320bbecb4c22bc40ab90f.pdf)
+- [Inferential Statistics (R)](https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Certificates/3_certificate-statistica-inferenziale_raffaella-todino_691db5323ef1bd795eb69146.pdf)
+- [Fundamentals of Machine Learning (Python)](https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Certificates/4_certificate-fondamenti-machine-learning_raffaella-todino_694c182282ced1e385d91737.pdf)
+- [Machine Learning: Models and Algorithms (Python)](https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Certificates/5_certificate-ML-modelli%20e%20algoritmi_raffaella-todino_69f07220bc4671b70f85a162.pdf)
 
