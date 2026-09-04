@@ -11,7 +11,7 @@ The projects are listed from the most recent to the first one completed.
 <img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/creditcard.jpg" alt="Insurance" width="220" align="left"> [Credit Risk Prediction](https://github.com/raffaellatodino/Previsione-affidabilita-creditizia)  
 Development of a model capable of estimating customers' creditworthiness.    
 Use of Python (numpy, pandas, matplotlib, seaborn, sklearn).    
-Dataset analysis, variable distributions, preprocessing and handling of missing data, feature encoding, standardization, train-test splitting, cross-validation, construction of predictive models (logistic regression, decision tree, random forest), model evaluation and comparison, ROC curves, confusion matrices.  
+Dataset analysis, variable distributions, preprocessing and handling of missing data, feature encoding, standardization, train-test splitting, cross-validation, construction of predictive models (logistic regression, decision tree, random forest), model evaluation and comparison, ROC curves, confusion matrices.
   
 ## Fundamentals of Machine Learning Module  
 <img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/insurance.jpg" alt="Insurance" width="220" align="left"> [Insurance Cross-Selling](https://github.com/raffaellatodino/Cross-selling-assicurativo)  
@@ -23,8 +23,7 @@ Dataset exploration, descriptive analysis of variables, feature encoding, train-
 <img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/vegan.jpg" alt="Vegan" width="220" align="left"> [Vegan Products Software](https://github.com/raffaellatodino/Software-prodotti-vegani)  
 Development of a small text-based management software to handle the inventory of a vegan products store.  
 Use of Python (json package), file operations, use of loops, conditional statements, and function definitions.  
-Exception handling.  
-
+Exception handling. <br><br><br>
 
 ## Certificates
 - [Python Programming](https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Certificates/1_certificate-programmazione-con-python-630f72cc69cfc2ed210361eb.pdf)
