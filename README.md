@@ -8,28 +8,66 @@ I am currently attending the Deep Learning and Artificial Neural Networks module
 The projects are listed from the most recent to the first one completed.   
 
 ## Machine Learning Advanced Techniques Module
-<img src="https://github.com/raffaellatodino/Data-Science-projects/blob/main/Images/energy.jpg"  alt="Energy" width="235" align="left"> [Energy Consumption Forecasting](https://github.com/raffaellatodino/Energy-Consumption-Forecasting)  
+<table border="0">
+<tr>
+<td width="250"><img src="https://github.com/raffaellatodino/Data-Science-projects/blob/main/Images/energy.jpg" alt="Energy Consumption Forecasting"></td>
+<td>
+
+[Energy Consumption Forecasting](https://github.com/raffaellatodino/Energy-Consumption-Forecasting)  
 Time-Series Analysis to develop a forecasting model able to predict the energy consumption of buildings.  
 Use of **Python (numpy, pandas, sklearn, statsmodel, tensorflow, keras, scikeras)**.  
-Time-Series analysis, forecasting, ARIMA/SARIMA models, neural networks LSTM models, ACF/PACF analysis, hyperparameters optimization (RandomizedSearch), train-test splitting, metrics evaluation.<br><br>
+Time-Series analysis, forecasting, ARIMA/SARIMA models, neural networks LSTM models, ACF/PACF analysis, hyperparameters optimization (RandomizedSearch), train-test splitting, metrics evaluation.
+
+</td>
+</tr>
+</table>
 
 ## Machine Learning Models and Algorithms Module  
-<img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/creditcard.jpg" alt="Credit card" width="235" align="left"> [Credit Risk Prediction](https://github.com/raffaellatodino/Credit-risk-prediction)  
+<table border="0">
+<tr>
+<td width="250"><img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/creditcard.jpg" alt="Credit card" width="250">
+<td>
+  
+[Credit Risk Prediction](https://github.com/raffaellatodino/Credit-risk-prediction)  
 Development of a model capable of estimating customers' creditworthiness.    
 Use of **Python (numpy, pandas, matplotlib, seaborn, sklearn)**.    
-Dataset analysis, variable distributions, preprocessing and handling of missing data, feature encoding, standardization, train-test splitting, cross-validation, predictive models (logistic regression, decision tree, random forest), model evaluation and comparison, ROC curves, confusion matrices.<br>
+Dataset analysis, variable distributions, preprocessing and handling of missing data, feature encoding, standardization, train-test splitting, cross-validation, predictive models (logistic regression, decision tree, random forest), model evaluation and comparison, ROC curves, confusion matrices.
+
+</td>
+</tr>
+</table>
 
 ## Fundamentals of Machine Learning Module  
-<img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/insurance.jpg" alt="Insurance" width="235" align="left"> [Insurance Cross-Selling](https://github.com/raffaellatodino/Insurance-cross-selling)  
+
+<table border="0">
+<tr>
+<td width="250"><img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/insurance.jpg" alt="Insurance">
+<td>
+
+[Insurance Cross-Selling](https://github.com/raffaellatodino/Insurance-cross-selling)  
 Development of a model to predict whether a customer with health insurance might be interested in additional vehicle insurance.  
 Use of **Python (numpy, pandas, matplotlib, seaborn, sklearn, imblearn)**.  
-Dataset exploration, descriptive analysis of variables, feature encoding, train-test splitting, logistic regression, oversampling and undersampling, model evaluation with appropriate metrics, ROC curves, cross-validation.<br>
+Dataset exploration, descriptive analysis of variables, feature encoding, train-test splitting, logistic regression, oversampling and undersampling, model evaluation with appropriate metrics, ROC curves, cross-validation.
+</td>
+</tr>
+</table>
 
 ## Python Programming Module
-<img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/vegan.jpg" alt="Vegan" width="235" align="left"> [Vegan Products Software](https://github.com/raffaellatodino/Vegan-products-software)  
+
+<table border="0">
+<tr>
+<td width="250"><img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/vegan.jpg" alt="Vegan">
+<td>
+
+[Vegan Products Software](https://github.com/raffaellatodino/Vegan-products-software)  
 Development of a small text-based management software to handle the inventory of a vegan products store.  
 Use of **Python (json package)**, file operations, use of loops, conditional statements, and function definitions.  
-Exception handling. <br><br>
+Exception handling.
+</td>
+</tr>
+</table>
+
+<br>
 
 ## Certificates
 - [Python Programming](https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Certificates/1_certificate-programmazione-con-python-630f72cc69cfc2ed210361eb.pdf)
