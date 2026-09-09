@@ -8,11 +8,10 @@ I am currently attending the Deep Learning and Artificial Neural Networks module
 The projects are listed from the most recent to the first one completed.   
 
 ## Machine Learning Advanced Techniques Module
-<img src="https://github.com/raffaellatodino/Data-Science-projects/blob/main/Images/energy.jpg" alt="Insurance" width="220" align="left"> [Energy Consumption Forecasting](https://github.com/raffaellatodino/Energy-Consumption-Forecasting)  
+<img src="https://github.com/raffaellatodino/Data-Science-projects/blob/main/Images/energy.jpg" alt="Insurance" width="220" height="250" align="left"> [Energy Consumption Forecasting](https://github.com/raffaellatodino/Energy-Consumption-Forecasting)  
 Time-Series Analysis to develop a forecasting model able to predict the energy consumption of buildings.  
 Use of **Python (numpy, pandas, sklearn, statsmodel, tensorflow, keras, scikeras)**.  
-Time-Series analysis, forecasting, ARIMA/SARIMA models, neural networks LSTM models, ACF/PACF analysis, hyperparameters optimization (RandomizedSearch), train-test splitting, metrics evaluation.
-
+Time-Series analysis, forecasting, ARIMA/SARIMA models, neural networks LSTM models, ACF/PACF analysis, hyperparameters optimization (RandomizedSearch), train-test splitting, metrics evaluation.  
 
 ## Machine Learning Models and Algorithms Module  
 <img src="https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Images/creditcard.jpg" alt="Insurance" width="220" align="left"> [Credit Risk Prediction](https://github.com/raffaellatodino/Credit-risk-prediction)  
