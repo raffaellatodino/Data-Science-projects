@@ -75,5 +75,5 @@ Exception handling.
 - [Inferential Statistics (R)](https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Certificates/3_certificate-statistica-inferenziale_raffaella-todino_691db5323ef1bd795eb69146.pdf)
 - [Fundamentals of Machine Learning (Python)](https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Certificates/4_certificate-fondamenti-machine-learning_raffaella-todino_694c182282ced1e385d91737.pdf)
 - [Machine Learning: Models and Algorithms (Python)](https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Certificates/5_certificate-ML-modelli%20e%20algoritmi_raffaella-todino_69f07220bc4671b70f85a162.pdf)
-- [Machine Learning: advanced techniques (Python)](https://github.com/raffaellatodino/Data-Science-projects/blob/main/Certificates/6_certificate_ML-tecniche%20avanzate_raffaella-todino_6abb8c9e507d4ed401d80288.pdf)
+- [Machine Learning: Advanced Techniques (Python)](https://github.com/raffaellatodino/Data-Science-projects/blob/main/Certificates/6_certificate_ML-tecniche%20avanzate_raffaella-todino_6abb8c9e507d4ed401d80288.pdf)
 
