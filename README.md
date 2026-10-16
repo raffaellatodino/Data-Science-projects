@@ -3,7 +3,7 @@ This repository collects the projects I completed during the Data Science Master
 It also includes the certificates obtained along the way.    
 
 I am still completing the program, so the repository will be gradually updated with the completed courses.    
-I am currently attending the Deep Learning and Artificial Neural Networks module; upcoming modules include NLP, Big Data, SQL, and Data Visualization (Tableau).  
+I am currently working on the project for the Deep Learning and Artificial Neural Networks module; upcoming modules include NLP, Big Data, SQL and Data Visualization (Tableau).  
 
 The projects are listed from the most recent to the first one completed.   
 
@@ -76,4 +76,4 @@ Exception handling.
 - [Fundamentals of Machine Learning (Python)](https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Certificates/4_certificate-fondamenti-machine-learning_raffaella-todino_694c182282ced1e385d91737.pdf)
 - [Machine Learning: Models and Algorithms (Python)](https://github.com/raffaellatodino/Data-Science-projects_ProfessionAI/blob/main/Certificates/5_certificate-ML-modelli%20e%20algoritmi_raffaella-todino_69f07220bc4671b70f85a162.pdf)
 - [Machine Learning: Advanced Techniques (Python)](https://github.com/raffaellatodino/Data-Science-projects/blob/main/Certificates/6_certificate_ML-tecniche%20avanzate_raffaella-todino_6abb8c9e507d4ed401d80288.pdf)
-
+- [Deep Learning and Artificial Neural Networks (Python)](https://github.com/raffaellatodino/Data-Science-projects/blob/main/Certificates/7_certificate_Deep%20Learning%20e%20reti%20neurali%20artificiali_raffaella-todino_6ad20a68b4d814e38ad65e9b_it.pdf)
